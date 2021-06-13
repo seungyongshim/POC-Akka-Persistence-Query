@@ -1,0 +1,10 @@
+FROM mcr.microsoft.com/mssql/server:2019-CU9-ubuntu-16.04
+
+USER root
+
+COPY setup.sql setup.sql
+COPY entrypoint.sh entrypoint.sh
+
+RUN chmod +x entrypoint.sh
+
+CMD /bin/bash ./entrypoint.sh & /opt/mssql/bin/sqlservr 

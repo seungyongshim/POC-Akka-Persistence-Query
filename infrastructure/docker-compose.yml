@@ -1,0 +1,14 @@
+version: '2.1'
+
+services:
+  mssql:
+    image: mssql
+    build:
+      context: ./mssql
+      dockerfile: DockerFile
+    hostname: mssql
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: q1w2e3r4t5Y^U&I*O(P)

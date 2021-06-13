@@ -1,0 +1,22 @@
+akka {
+  persistence{
+    journal {
+      plugin = "akka.persistence.journal.sql-server"
+      sql-server {
+          class = "Akka.Persistence.SqlServer.Journal.SqlServerJournal, Akka.Persistence.SqlServer"
+          schema-name = dbo
+          auto-initialize = on
+          connection-string = "Server=(Local);Database=Akka;User Id=akkadotnet;Password=q1w2e3r4t5Y^U&I*O(P);"
+      }
+    } 
+    snapshot-store{
+      plugin = "akka.persistence.snapshot-store.sql-server"
+      sql-server {
+          class = "Akka.Persistence.SqlServer.Snapshot.SqlServerSnapshotStore, Akka.Persistence.SqlServer"
+          schema-name = dbo
+          auto-initialize = on
+          connection-string = "Server=(Local);Database=Akka;User Id=akkadotnet;Password=q1w2e3r4t5Y^U&I*O(P);"
+      }
+    }
+  }
+}
